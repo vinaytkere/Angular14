@@ -1,0 +1,52 @@
+<div class="container" style="padding-top:10px ;">
+    <div class="row">
+        <div class="col-md-12"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="proj" class="form-label">Add Project</label>
+                            <input type="text" formControlName="projectName" class="form-control" id="projectName"
+                                [ngClass]="{ 'is-invalid': submitted && f.projectName.errors }">
+                            <div *ngIf="submitted && f.projectName.errors" class="invalid-feedback">
+                                <div *ngIf="f.projectName.errors.required">Project Name is required</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <dx-data-grid id="gridContainer" [dataSource]="projectList" keyExpr="Id"
+                        [columns]="['Id', 'ProjectName']" [showBorders]="true">
+                    </dx-data-grid> -->
+                    <table id="datatableexample" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                        class="row-border hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Project Name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of projectList">
+                                <td>{{item.Id}}</td>
+                                <td>{{item.ProjectName}}</td>
+                                <td><button type="submit" (click)="onSelect(item)" class="btn btn-primary"><i class="fa-solid fa-delete-left"></i> Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

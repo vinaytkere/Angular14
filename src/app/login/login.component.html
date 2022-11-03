@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row row-fluid">
+        <div class="card col-md-6">
+            <div class="card-header">
+                Login
+            </div>
+            <div class="card-body">
+                <div class="row row-fluid">
+                    <div class="col-md-6">
+                        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" formControlName="email" class="form-control" id="email"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" formControlName="password" class="form-control" id="password"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                            <span [hidden]="!isInvalid" style="color: red;">Invalid Email or Password</span>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
